@@ -1,9 +1,14 @@
+import { useSocketContext } from "../../context/SocketContext";
 import type { ConversationType } from "../../store/useConversation";
 import useConversation from "../../store/useConversation";
 
 const Conversation = ({ conversation }: { conversation: ConversationType }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const isSelected = selectedConversation?.id === conversation.id;
+
+  const { onlineUsers } = useSocketContext();
+
+  const isOnline = onlineUsers.includes(conversation.id);
 
   return (
     <>
@@ -12,8 +17,8 @@ const Conversation = ({ conversation }: { conversation: ConversationType }) => {
 			py-1 cursor-pointer ${isSelected ? "bg-sky-500" : ""}`}
         onClick={() => setSelectedConversation(conversation)}
       >
-        <div className="avatar online">
-          <div className="w-8 md:w-12 rounded-full">
+        <div className={`avatar ${isOnline ? "avatar-online" : ""}`}>
+          <div className="w-8 md:w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
             <img src={conversation.profilePic} alt="user avatar" />
           </div>
         </div>
