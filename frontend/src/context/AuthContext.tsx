@@ -13,7 +13,7 @@ type AuthUser = {
   id: string;
   fullName: string;
   username: string;
-  proflePic: string;
+  profilePic: string;
   gender: string;
 };
 
