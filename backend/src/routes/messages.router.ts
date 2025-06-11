@@ -8,8 +8,8 @@ import {
 
 const router = express.Router();
 
+router.get("/conversations", authMiddleware, getConversations);
 router.post("/send/:id", authMiddleware, sendMessage);
 router.get("/:id", authMiddleware, getMessages);
-router.get("/conversations", authMiddleware, getConversations);
 
 export default router;

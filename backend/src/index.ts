@@ -6,6 +6,8 @@ import cookieParser from "cookie-parser";
 
 dotenv.config();
 
+const PORT = process.env.PORT || 5000;
+
 const app = express();
 
 app.use(cookieParser());
@@ -14,6 +16,6 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/messages", messagesRouter);
 
-app.listen(5000, () => {
-  console.log("Server listening to port 5000");
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
