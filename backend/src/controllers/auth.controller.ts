@@ -3,7 +3,11 @@ import prisma from "../db/prisma.js";
 import bcryptjs from "bcryptjs";
 import { generateToken } from "../utils/generateToken.js";
 
-export const me = async (req: Request, res: Response, next: NextFunction) => {
+export const me = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<Response | any> => {
   try {
     const user = await prisma.user.findUnique({ where: { id: req.user.id } });
     if (!user) {
