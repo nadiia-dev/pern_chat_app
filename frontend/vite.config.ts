@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      "/api": { target: "http://localhost:5000" },
+      "/api": { target: "https://pern-chat-app-y35d.onrender.com" },
     },
   },
 });
