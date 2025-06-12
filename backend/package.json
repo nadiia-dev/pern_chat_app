@@ -3,7 +3,8 @@
   "type": "commonjs",
   "scripts": {
     "dev": "nodemon",
-    "build": "tsc && npx prisma generate --schema=./prisma/schema.prisma"
+    "build": "tsc && npm install && npx prisma generate --schema=./prisma/schema.prisma",
+    "start": "node dist/index.js"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.9",
